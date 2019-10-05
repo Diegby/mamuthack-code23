@@ -1,4 +1,0 @@
-
-exports.identifyTwits = function(data, callback){
-    callback(data)
-}
