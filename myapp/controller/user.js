@@ -1,5 +1,5 @@
-var sdm = require("./../model/speech_detection_model");
+var ws = require("./../model/word_searching");
 
 exports.getTwitsData = function(callback){
-    sdm.identifyTwits(['hey', 'you'], callback)
+    ws.identifyTwits(['Hola perro estúpido', 'Me obligas a ser malo'], callback)
 }
