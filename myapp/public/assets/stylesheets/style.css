@@ -62,14 +62,7 @@ h1.text_description{
 text-align: center;
 }
 
-/* Finder */
 
-.jumbotron.jumbotron-fluid.finder{
-  width: 100%;
-    margin-top: 10%;
-    border-radius: 25px;
-    padding: 2rem;
-}
 
 /* Arrow */
 a.arrow{
@@ -78,6 +71,39 @@ a.arrow{
 a.arrow:hover{
   color: #d0a310 ;
  }
+
+ /* Finder */
+
+.jumbotron.jumbotron-fluid.finder{
+  width: 100%;
+    margin-top: 10%;
+    border-radius: 25px;
+    padding: 2rem;
+}
+
+button.btn.btn-yellow{
+  color: #d0a310;
+  border-color:  #d0a310;
+  border: 1px solid;
+}
+
+button.btn.btn-yellow:hover{
+  color: #ffffff;
+  background-color: #d0a310;
+  border-color:  #d0a310;
+  border: 1px solid;
+}
+
+/* CHARTS */
+
+.chart-container {
+  position: relative;
+  height: 350px;
+  max-height: 100vh;
+  width: 35vw;
+  
+}
+
 
 /*Footer*/
 section {
