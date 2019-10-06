@@ -6,11 +6,11 @@ var twit = require('./../controller/tweets')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.send('index');
 });
 
 router.get('/test', function(req, res, next) {
-    user.getTwitsData( function(data) {
+    user.getTwitsData('immapi29', function(data) {
         res.send(data)
     })
 })

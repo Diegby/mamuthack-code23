@@ -17,8 +17,8 @@ var T = new Twit({
 //
 //  search twitter for all tweets containing the word 'banana' since July 11, 2011
 //
-exports.getTwits = function(data ,callback){
-    T.get('search/tweets', { q: 'immapi29', count: 100 }, function(err, data, response){
+exports.getTwits = function(usuario ,callback){
+    T.get('search/tweets', { q: usuario, count: 20 }, function(err, data, response){
         textoTwets = []
         data.statuses.forEach(element => {
             textoTwets.push(element.text);
