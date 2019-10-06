@@ -37,7 +37,7 @@ exports.getTwitsData = function(usuario, callback){
                             var pyProg = spawn('python3',['model/external/nn.py', JSON_DATA, LASER_DATA, LASER_LOWER_DATA]); 
                             pyProg.stdout.on('data', function(data){
                                 delete_all_files()
-                                get_dictionary({'caracter': data}, tweets, callback)
+                                get_dictionary({'caracter': JSON.parse(data)}, tweets, callback)
                             });
                         });
                         
@@ -76,6 +76,6 @@ function get_dictionary(infoTwits, twits, callback){
 function delete_all_files(){
     FILES_TO_REMOVE = [LASER_LOWER_DATA, TEXT_LOWER_DATA, JSON_DATA, LASER_DATA, TEST_DATA]
     for (let i in FILES_TO_REMOVE){
-        fs.unlink(FILES_TO_REMOVE[i])
+        fs.unlink(FILES_TO_REMOVE[i], function() {} )
     }
 }

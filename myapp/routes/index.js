@@ -5,14 +5,20 @@ var user = require('./../controller/user')
 var twit = require('./../controller/tweets')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.send('index');
+router.get('/', function(req, res) {
+  res.render('index.html')  
 });
 
 router.get('/test', function(req, res, next) {
     user.getTwitsData('immapi29', function(data) {
         res.send(data)
     })
+})
+
+router.get('/info', function(req, res, next) {
+  user.getTwitsData(this.usuario, function(data) {
+      res.render('index.html', data);
+  })
 })
 
 router.get('/getTwit', function(req, res, next) {
