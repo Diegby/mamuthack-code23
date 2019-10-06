@@ -101,8 +101,8 @@
 									</div>
 										
 										<div class="buttons">	
-										<button class="btn btn-yellow my-2 my-sm-0 mr-3" type="submit"><i class="fas fa-search"></i> Search</button>
-										<button class="btn btn-outline-light my-2 my-sm-0 " type="submit"><i class="fas fa-chart-bar"></i> Show Statistics </button>
+										<button v-on:click="getData()" class="btn btn-yellow my-2 my-sm-0 mr-3" type="submit"><i class="fas fa-search"></i> Search</button>
+										<button v-on:click="charts()" class="btn btn-outline-light my-2 my-sm-0 " type="submit"><i class="fas fa-chart-bar"></i> Show Statistics </button>
 										</div>
 								</div>									
 							</div>
@@ -112,30 +112,55 @@
 					</div>
 				</div>
 
+
+<!-- Counter -->
+
+<div v-if="categories !== ''" class="group-counter justify-content-center">
+		<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+	
+			<div class="card-body">
+			  <h5 class="card-title">Offensive Tweets</h5>
+			  <p id="number_ot" class="card-text">{{c_offensive}}</p>
 			</div>
-			
-		</div>
-
-
-<!-- Graphics -->
-
-		<div class="row justify-content-center mt-3">
-				<div class="chart-container col-xl-5 col-sm-12">					   
-							<canvas id="chart_doughnut"></canvas>
-				</div>
+		  </div>
+		  <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
 	
+			<div class="card-body">
+			  <h5 class="card-title">Inoffensive Tweets</h5>
+			  <p class="card-text">{{c_inoffensive}}</p>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Graphics -->
+	
+			<div v-if="categories !== ''">
+					<h1 v-if="check == true" class="text_description mt-2">STATISTICS</h1>	
+			<div class="row justify-content-center mt-3">
+					
 					<div class="chart-container col-xl-5 col-sm-12">					   
+							<canvas id="chart_doughnut"></canvas>
+					</div>
+		
+						<div class="chart-container col-xl-5 col-sm-12">					   
 							<canvas id="chart_pie"></canvas>
-				</div>
+					</div>
+			</div>
+	
+	
+			<div class="row justify-content-center mt-5">
+	
+					<div class="chart-container col-xl-10 col-sm-12">					   
+							<canvas id="chart_barhorizontal"></canvas>
+					</div>
+		
+			</div>
+	
 		</div>
 
-
-		<div class="row justify-content-center mt-5">
-
-				<div class="chart-container col-xl-10 col-sm-12">					   
-						<canvas id="chart_barhorizontal"></canvas>
-				</div>
-	
+		</div>
+			
+			
 		</div>
 
 <!-- Footer -->

@@ -73,6 +73,7 @@ a.arrow:hover{
   color: #d0a310 ;
  }
 
+
  /* Finder */
 
 .jumbotron.jumbotron-fluid.finder{
@@ -99,7 +100,16 @@ button.btn.btn-yellow:hover{
   border: 1px solid;
 }
 
+/* COUNTER */
+.group-counter{
+  display: flex;
+  flex-direction: row;
+}
 
+.card{
+  margin: 1rem;
+  text-align: center;
+}
 /* CHARTS */
 
 .chart-container {

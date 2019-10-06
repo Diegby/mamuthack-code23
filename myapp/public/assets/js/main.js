@@ -2,13 +2,16 @@ const vm = new Vue({
 
     el: '#app',
     created:function(){
-        this.getData();
+    
     },
     
     data: {
-        category:"",
+        categories:"",
+        caracter: "", 
+        c_offensive: "",
+        c_inoffensive:"",
+        check: false
 
-        
     },
 
 
@@ -19,15 +22,22 @@ methods: {
         console.log("Dentro fetch");
         this.$http.get("../public/assets/json/archivo.json")
         .then((respuesta)=> {
-            vm.category = respuesta.data.category;
-            console.log(vm.category);
-            vm.charts();
+            vm.categories = respuesta.data.categories;          
+            vm.caracter = respuesta.data.caracter;
+            vm.counter();
         }
         )
+    },
+    //Counter data offensive or not offensive
+    
+    counter(){
+        vm.c_offensive = vm.caracter.o;
+        vm.c_inoffensive = vm.caracter.i;
     },
 
     //Gráficas
     charts(){
+        vm.check = true;
         var chart_d = document.getElementById('chart_doughnut');
         var chart_doughnut = new Chart(chart_d, {
             type: 'doughnut',
@@ -35,7 +45,7 @@ methods: {
                 labels: ['Physical Disabilities and Diversity', 'Cognitive Disabilities and Diversity'],
                 datasets: [{
                     label: 'Analysis',
-                    data: [vm.category.DDF,vm.category.DDP],
+                    data: [vm.categories.ddf,vm.categories.ddp],
                     backgroundColor: [                    
                     
                         '#1B9E77',
@@ -72,7 +82,7 @@ methods: {
                     labels: ['Male Genitalia', 'Female Genitalia'],
                     datasets: [{
                         label: 'Genitalia',
-                        data: [vm.category.ASM,vm.category.ASF],
+                        data: [vm.categories.asm,vm.categories.asf],
                         backgroundColor: [                    
                         
                             '#380546',
@@ -109,7 +119,7 @@ methods: {
                 labels: ['Moral and Behavioral Defects', 'Words Related to Social and Economic Disadvantage', 'Negative Stereotypes Ethnic Slurs', 'Words Related to Prostitution', 'Words Related to Homosexuality', 'Words with Potential Negative Connotations', 'Derogatory Words', 'Felonies and Words related to Crime and Immoral Behavior'],
                 datasets: [{
                     label: '',
-                    data: [vm.category.DMC, vm.category.IS, vm.category.PS, vm.category.PR, vm.category.OM, vm.category.QAS, vm.category.CDS, vm.category.RE],
+                    data: [vm.categories.dmc, vm.categories.is, vm.categories.ps, vm.categories.pr, vm.categories.om, vm.categories.qas, vm.categories.cds, vm.categories.re],
                     backgroundColor: [
                         '#089F9A',
                         '#4E3D2F',
