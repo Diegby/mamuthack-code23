@@ -37,7 +37,7 @@ exports.getTwitsData = function(usuario, callback){
                             var pyProg = spawn('python3',['model/external/nn.py', JSON_DATA, LASER_DATA, LASER_LOWER_DATA]); 
                             pyProg.stdout.on('data', function(data){
                                 delete_all_files()
-                                callback(data.toString())
+                                get_dictionary({'caracter': data}, callback)
                             });
                         });
                         
