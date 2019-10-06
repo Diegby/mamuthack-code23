@@ -20,20 +20,21 @@ html body{
     height: 100vh;
     overflow: auto;
   }
+
+
 /* NAVBAR */
 
 nav.navbar.navbar-dark.bg-dark{
   padding-bottom: 1%;
 }
 
-
-
-
-/* SLIDER  HOME  */
 .logo{
   width: 100%;
   margin-left: 2rem;
 }
+
+/* SLIDER  HOME  */
+
 
 #carouselExampleIndicators{
 
@@ -81,6 +82,10 @@ a.arrow:hover{
     padding: 2rem;
 }
 
+.input-group-prepend{
+  width: 60%;
+}
+
 button.btn.btn-yellow{
   color: #d0a310;
   border-color:  #d0a310;
@@ -93,6 +98,7 @@ button.btn.btn-yellow:hover{
   border-color:  #d0a310;
   border: 1px solid;
 }
+
 
 /* CHARTS */
 
@@ -180,7 +186,58 @@ margin-right: 5px;
   margin-right: 2.5rem !important;
 }
 
+
+
 @media (max-width:767px){
+  h1{
+    font-size:  2rem !important;
+   }
+
+  /* NAVBAR */
+
+   .logo {
+    width: 150px;
+    margin: 1rem;
+}
+
+
+
+
+ 
+/* Arrow */
+#arrowdiv{
+  display: none !important;
+}
+
+
+.fullheight{
+  height: 100% !important;
+  overflow: auto;
+}
+.input-group-prepend{
+  width: 100%;
+}
+
+.input-group {
+
+    flex-direction: column;
+  }
+
+  input.form-control{
+    width: 100% !important;
+  }
+
+  button.btn{
+    width: 50% ;  
+  }
+
+  .buttons{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;
+
+  }
+
 #footer h5 {
   padding-left: 0;
   border-left: transparent;
