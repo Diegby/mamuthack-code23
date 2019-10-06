@@ -37,7 +37,7 @@ exports.getTwitsData = function(usuario, callback){
                             var pyProg = spawn('python3',['model/external/nn.py', JSON_DATA, LASER_DATA, LASER_LOWER_DATA]); 
                             pyProg.stdout.on('data', function(data){
                                 delete_all_files()
-                                get_dictionary({'caracter': data}, callback)
+                                get_dictionary({'caracter': data}, tweets, callback)
                             });
                         });
                         
@@ -48,7 +48,7 @@ exports.getTwitsData = function(usuario, callback){
     })
 }
 
-function get_dictionary(infoTwits, callback){
+function get_dictionary(infoTwits, twits, callback){
     fs.readFile(WORDS_ES, "utf8", function(err, file){
         let passT = true;
         lineWords = file.toString().split('\n')

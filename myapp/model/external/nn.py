@@ -50,5 +50,5 @@ for p in predictions:
     else:
         catalogation['i'] += 1
 
-print(catalogation)
+print(json.dumps(catalogation))
 sys.stdout.flush()
