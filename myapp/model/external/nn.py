@@ -15,10 +15,8 @@ def merge_feature(*args):
             else:
                 feat = []
                 break
-        if feat == []:
-            continue
         feat_all.append(feat)
-    return feat_all
+    return np.array(feat_all)
 
 twits_file = sys.argv[1]
 laser_file = sys.argv[2]
